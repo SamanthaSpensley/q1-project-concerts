@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-mvYjhBJXQ9VlNETV/xXShy849GsBHnKzVVudnMOcWUVM/6Nd2ksj8VNng5f8ylyX" crossorigin="anonymous">
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Let's find you a concert</h1>
+
+      <div class="form-group">
+        <label class="control-label" for="inputLarge"></label>
+        <input class="form-control input-lg" type="text" id="artist" placeholder="Enter an artist">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label" for="inputLarge"></label>
+        <input class="form-control input-lg" type="text" id="location" placeholder="Enter a city, state">
+      </div>
+
+      <div>
+        <input type="submit" value="Find Concerts" id="getButton"/>
+      </div>
+
+      <div id="dataContainer" ></div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src='main.js'></script>
+  </body>
+</html>
