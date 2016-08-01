@@ -9,27 +9,42 @@
   <body>
     <div class="container">
       <div class="intro">
-        <h1>Let's find you a concert</h1>
+        <h1>bebop.</h1>
+        <h3 class="lead">Need a music refresh? Looking for a new band to checkout? Enter an artist you dig and your location and let bebop do the work for you.</h3>
       </div>
 
       <form id="userInput">
         <div class="form-group">
-          <label class="control-label" for="inputLarge"></label>
-          <input class="form-control input-lg" type="text" id="artist" placeholder="Enter an artist">
-        </div>
 
-        <div class="form-group">
           <label class="control-label" for="inputLarge"></label>
-          <input class="form-control input-lg" type="text" id="location" placeholder="Enter a city, state">
+          <input class="form-control input-lg lead inputText" type="text" id="artist" placeholder="Enter an artist">
+
+          <label class="control-label" for="inputLarge"></label>
+          <input class="form-control input-lg lead inputText" type="text" id="location" placeholder="Enter a city, state">
+
         </div>
 
         <div>
-          <input type="submit" value="Find Concerts" id="submit"/>
+          <input type="submit" class="btn btn-default btn-lg btn-block" value="Find Related Artists + Concerts" id="submit"/>
         </div>
       </form>
 
+      <div class="col s12 m7">
+        <div class="card-horizontal">
+          <div class="card-image">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div id="dataContainer" ></div>
+
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>

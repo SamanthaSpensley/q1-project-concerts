@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   //"http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/houndmouth/events/recommended?location=Denver,Colorado&app_id=concertgen&api_version=2.0&format=json";
 
-
+  $('.card-horizontal').hide();
 
 
   $('form').submit(function(event){
@@ -16,26 +16,30 @@ $(document).ready(function(){
       .then(function (data){
 
         $('.intro h1').hide('slow');
+        $('.intro h3').hide('slow');
         $('#userInput').hide('slow');
 
         var $results = $('<h2>').text('Concerts related to ' + artist + ' near ' + location + ':');
-        $('.intro').append($results)
+        $('.intro').attr('val', 'results').append($results)
         var $repeatSearch = $('<button>')
 
         console.log(data);
         for (var i =0; i < data.length; i++) {
-          console.log(data[i].title);
+          console.log(data[i].artists[0].thumb_url);
           var $newOption = $("<h3>");
           var $dateDetails = $("<p>");
+          var $image = $('<img>');
           $newOption = $newOption.text(data[i].title);
           $newOption = $newOption.attr("val", data[i].title);
           $dateDetails = $dateDetails.text(data[i].formatted_datetime);
           $dateDetails = $dateDetails.attr("val", data[i].formatted_datetime);
-          $('#dataContainer').append($newOption);
-          $('#dataContainer').append($dateDetails);
+          $image = $image.attr('src', data[i].artists[0].thumb_url);
+          $image = $image.attr('val', 'artistImage');
+          $('.card-content').append($image);
+          $('.card-content').append($newOption);
+          $('.card-content').append($dateDetails);
+          $('.card-horizontal').show();
         }
-
-
 
       })
       .catch(function (error) {

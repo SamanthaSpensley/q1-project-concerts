@@ -1,11 +1,51 @@
-/*.container-fluid {
+.container-fluid {
+  display: flex;
+}
+.intro {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
-
-.intro {
   padding-top: 2vw;
   padding-bottom: 2vw;
+}
+.form-group {
+  width: 65%;
+  margin: auto;
+  margin-bottom: 2vw;
+}
+.form-control {
+  outline: none;
+  border: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border-bottom: 2px solid #e7e7e7;
+}
+#artist #location {
+  border-bottom: 1px solid #e7e7e7;
+}
+#submit {
+  width: 65%;
+  margin: auto;
+  margin-top: 5vw;
+  margin-bottom: 2vw;
+}
+.inputText {
+  font-size: 25px;
+}
+.intro h2 {
+  margin-right: auto;
+}
+
+/* ----- Material Design Cards ----- */
+.card-horizontal {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
+  margin-bottom: 3vw;
+  padding: 1vw;
+}
+.artistImage {
+  display: inline;
 }
