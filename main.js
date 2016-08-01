@@ -2,12 +2,12 @@ $(document).ready(function(){
 
   //"http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/houndmouth/events/recommended?location=Denver,Colorado&app_id=concertgen&api_version=2.0&format=json";
 
-  var url = 'http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/' + artist + '/events/recommended?location=' + location + '&app_id=concertgen&api_version=2.0&format=json'
-  var artist = $("#artist").val();
-  var location = $("#location").val();
+  // var url = 'http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/' + artist + '/events/recommended?location=' + location + '&app_id=concertgen&api_version=2.0&format=json'
+  // var artist = $("#artist").val();
+  // var location = $("#location").val();
 
   $('#getButton').on('click', function(){
-    var url = url
+    var url = "http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/houndmouth/events/recommended?location=Denver,Colorado&app_id=concertgen&api_version=2.0&format=json";
 
 
     $.get(url)
