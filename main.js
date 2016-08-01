@@ -10,10 +10,18 @@ $(document).ready(function(){
 
     var artist = $("#artist").val();
     var location = $("#location").val();
-    var url = 'http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/' + artist + '/events/recommended?location=' + location + '&app_id=concertgen&api_version=2.0&format=json';
+    var url = 'http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/' + artist + '/events/recommended?location=' + location + '&radius=150&app_id=concertgen&api_version=2.0&format=json';
 
     $.get(url)
       .then(function (data){
+
+        $('.intro h1').hide('slow');
+        $('#userInput').hide('slow');
+
+        var $results = $('<h2>').text('Concerts related to ' + artist + ' near ' + location + ':');
+        $('.intro').append($results)
+        var $repeatSearch = $('<button>')
+
         console.log(data);
         for (var i =0; i < data.length; i++) {
           console.log(data[i].title);
@@ -26,6 +34,9 @@ $(document).ready(function(){
           $('#dataContainer').append($newOption);
           $('#dataContainer').append($dateDetails);
         }
+
+
+
       })
       .catch(function (error) {
         console.log(error);
