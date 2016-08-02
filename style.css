@@ -25,12 +25,7 @@
 #artist #location {
   border-bottom: 1px solid #e7e7e7;
 }
-#submit {
-  width: 65%;
-  margin: auto;
-  margin-top: 5vw;
-  margin-bottom: 2vw;
-}
+
 .inputText {
   font-size: 25px;
 }
@@ -39,13 +34,39 @@
 }
 
 /* ----- Material Design Cards ----- */
+#dataContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
 .card-horizontal {
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26), 0 2px 10px 0 rgba(0, 0, 0, 0.22);
   margin-bottom: 3vw;
   padding: 1vw;
+  justify-content: flex-end;
 }
-.artistImage {
-  display: inline;
+.card-horizontal:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.artist-image {
+  display:block;
+  margin:auto;
+}
+
+
+/* ----- Buttons ----- */
+
+#submit {
+  width: 65%;
+  margin: auto;
+  margin-top: 5vw;
+  margin-bottom: 2vw;
+}
+.new-search {
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  margin-bottom: 2vw;
+  margin-right: 2vw;
 }

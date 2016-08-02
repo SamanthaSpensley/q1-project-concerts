@@ -3,7 +3,11 @@ $(document).ready(function(){
   //"http://cors-anywhere.herokuapp.com/http://api.bandsintown.com/artists/houndmouth/events/recommended?location=Denver,Colorado&app_id=concertgen&api_version=2.0&format=json";
 
   $('.card-horizontal').hide();
+  $('.new-search').hide();
 
+  $('.new-search').on('click', function() {
+    location.reload('slow');
+  })
 
   $('form').submit(function(event){
     event.preventDefault();
@@ -25,20 +29,26 @@ $(document).ready(function(){
 
         console.log(data);
         for (var i =0; i < data.length; i++) {
-          console.log(data[i].artists[0].thumb_url);
-          var $newOption = $("<h3>");
-          var $dateDetails = $("<p>");
-          var $image = $('<img>');
-          $newOption = $newOption.text(data[i].title);
-          $newOption = $newOption.attr("val", data[i].title);
-          $dateDetails = $dateDetails.text(data[i].formatted_datetime);
-          $dateDetails = $dateDetails.attr("val", data[i].formatted_datetime);
-          $image = $image.attr('src', data[i].artists[0].thumb_url);
-          $image = $image.attr('val', 'artistImage');
-          $('.card-content').append($image);
-          $('.card-content').append($newOption);
-          $('.card-content').append($dateDetails);
-          $('.card-horizontal').show();
+          $('.new-search').show();
+
+          $('#dataContainer').append(
+              $('<div/>', {'class': 'card-horizontal'}).append(
+                $('<div/>', {'class': 'card-image'}).append(
+                  $('<img/>', {src: data[i].artists[0].thumb_url, 'class':'artist-image'})
+                )
+              )
+              .append(
+                $('<div/>', {'class': 'title'}).append(
+                  $('<h3/>', {text: data[i].title})
+                )
+              )
+              .append(
+                $('<div/>', {'class': 'supporting'}).append(
+                  $('<p/>', {text: data[i].formatted_datetime})
+                )
+              )
+            );
+
         }
 
       })
@@ -46,6 +56,31 @@ $(document).ready(function(){
         console.log(error);
       });
     })
+
+
+
+//message when nothing is returned
+//error message when inputs are left empty
+//album art per artist, not event
+//single material cards per artist
+
+//OLD
+// var $newOption = $("<h3>");
+// var $dateDetails = $("<p>");
+// var $image = $('<img>');
+// var $btn = $()
+// $newOption = $newOption.text(data[i].title);
+// $newOption = $newOption.attr("val", data[i].title);
+// $dateDetails = $dateDetails.text(data[i].formatted_datetime);
+// $dateDetails = $dateDetails.attr("val", data[i].formatted_datetime);
+// $image = $image.attr('src', data[i].artists[0].thumb_url);
+// $image = $image.attr('val', 'artistImage');
+// $('.card-content').append($image);
+// $('.card-content').append($newOption);
+// $('.card-content').append($dateDetails);
+// $('.card-horizontal').show();
+
+
 
 
 //EXAMPLE CALLS
