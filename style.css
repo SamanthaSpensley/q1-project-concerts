@@ -1,7 +1,7 @@
 .container-fluid {
   display: flex;
 }
-.intro {
+.intro, #name {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,15 +22,23 @@
   box-shadow: none !important;
   border-bottom: 2px solid #e7e7e7;
 }
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+}
 #artist #location {
   border-bottom: 1px solid #e7e7e7;
 }
-
 .inputText {
   font-size: 25px;
 }
 .intro h2 {
   margin-right: auto;
+}
+.intro h3 {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* ----- Material Design Cards ----- */

@@ -20,43 +20,47 @@ $(document).ready(function(){
     $.get(url)
       .then(function (data){
 
-        $('.intro h1').hide('slow');
+        $('#name').hide('slow');
         $('.intro h3').hide('slow');
         $('#userInput').hide('slow');
+        $('.new-search').show();
 
         var $results = $('<h2>').text('Concerts related to ' + artist + ' near ' + location + ':');
         $('.intro').attr('val', 'results').append($results)
-        var $repeatSearch = $('<button>')
 
-        console.log(data);
-        for (var i =0; i < data.length; i++) {
-          $('.new-search').show();
-
-          $('#dataContainer').append(
-              $('<div/>', {'class': 'card-horizontal'}).append(
-                $('<div/>', {'class': 'card-image'}).append(
-                  $('<img/>', {src: data[i].artists[0].thumb_url, 'class':'artist-image'})
-                )
-              )
-              .append(
-                $('<div/>', {'class': 'title'}).append(
-                  $('<h3/>', {text: data[i].title})
-                )
-              )
-              .append(
-                $('<div/>', {'class': 'supporting'}).append(
-                  $('<p/>', {text: data[i].formatted_datetime})
-                )
-              )
-              .append(
-                $('<div/>', {'class': 'ticket-link'}).append(
-                  $('<a/>', {href: data[i].formatted_datetime})
-                )
-              )
-          );
+        if (data === undefined || data.length === 0) {
+          $('.intro').append($('<p>', {'class': 'lead', text: "Unfortunately there are no upcoming shows related to " + artist + " near " + location}));
         }
+        else {
 
+          for (var i =0; i < data.length; i++) {
+            console.log(data[i].ticket_url);
 
+            $('#dataContainer').append(
+                $('<div/>', {'class': 'card-horizontal col-lg-4 col-xs-12'}).append(
+                  $('<div/>', {'class': 'card-image'}).append(
+                    $('<img/>', {src: data[i].artists[0].thumb_url, 'class':'artist-image'})
+                  )
+                )
+                .append(
+                  $('<div/>', {'class': 'title'}).append(
+                    $('<h4/>', {text: data[i].title})
+                  )
+                )
+                .append(
+                  $('<div/>', {'class': 'supporting'}).append(
+                    $('<p/>', {text: data[i].formatted_datetime})
+                  )
+                )
+                .append(
+                  $('<div/>', {'class': 'ticket-link'}).append(
+                    $('<a />', {text: 'Tickets', href: 'data[i].ticket_url'})
+                      //$('<input/>', {'type': 'button', 'val': 'Tickets', 'class': 'btn-default', onclick: location.href='data[i].ticket_url'})
+                  )
+                )
+            );
+          }
+        }
 
 
       })
